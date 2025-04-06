@@ -1,49 +1,45 @@
-📱 Movies App
+# 📱 Movies App
+
 Aplicativo em React Native utilizando a API do TMDB para buscar e visualizar detalhes de filmes.
 
-🚀 Funcionalidades
-Buscar filmes pelo nome
+## 🚀 Funcionalidades
 
-Exibir informações como título, pôster e data de lançamento
+- Buscar filmes pelo nome
+- Exibir informações como título, pôster e data de lançamento
+- Acessar detalhes adicionais do filme
+- Remover filmes da lista
 
-Acessar detalhes adicionais do filme
+## 🛠️ Tecnologias
 
-Remover filmes da lista
+- React Native
+- Expo
+- Axios
+- React Navigation
+- API do [TMDB (The Movie Database)](https://www.themoviedb.org/)
 
-🛠️ Tecnologias
-React Native
+## ⚙️ Como rodar o projeto
 
-Expo
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/jorgesantos001/movies-app.git
+   cd movies-app
+   ```
 
-Axios
+2. Instale as dependências:
+   ```bash
+   npm install
+   ```
 
-React Navigation
+3. Execute o app:
+   ```bash
+   npx expo start
+   ```
 
-API do TMDB (The Movie Database)
+## 📌 Observações
 
-⚙️ Como rodar o projeto
+- Certifique-se de ter o **Expo CLI** instalado (`npm install -g expo-cli`)
+- Você precisa de uma chave de acesso (API Read Access Token) da TMDB para consumir a API
 
-1- Clone o repositório:
+## 👨‍💻 Autor
 
-git clone https://github.com/jorgesantos001/movies-app.git
-
-cd movies-app
-
-2- Instale as dependências:
-
-npm install
-
-3- Execute o app:
-
-npx expo start
-
-📌 Observações
-
-Certifique-se de ter o Expo CLI instalado (npm install -g expo-cli)
-
-Você precisa de uma chave de acesso (API Read Access Token) da TMDB para consumir a API
-
-👨‍💻 Autor
-
-Feito por Jorge Patrocínio
-
+Feito por **Jorge Patrocínio** e **Yago Mouro**
