@@ -42,4 +42,4 @@ Aplicativo em React Native utilizando a API do TMDB para buscar e visualizar det
 
 ## 👨‍💻 Autor
 
-Feito por **Jorge Patrocínio** e **Yago Mouro**
+Feito por **Jorge Luiz Patrocínio dos Santos** e **Yago Raphael de Melo Mouro**
