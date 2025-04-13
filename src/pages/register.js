@@ -18,30 +18,35 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [curso, setCurso] = useState("");
   const [senha, setSenha] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const navigation = useNavigation();
 
   const handleCadastro = async () => {
     if (!nome || !telefone || !cpf || !email || !curso || !senha) {
-      Alert.alert("Preencha todos os campos!");
+      setErrorMessage("Preencha todos os campos!");
       return;
     }
 
-    const userData = {
-      nome,
-      telefone,
-      cpf,
-      email,
-      curso,
-      senha,
-    };
+    const novoUsuario = { nome, telefone, cpf, email, curso, senha };
 
     try {
-      await AsyncStorage.setItem("user", JSON.stringify(userData));
+      const usuariosSalvos = await AsyncStorage.getItem("users");
+      const usuarios = usuariosSalvos ? JSON.parse(usuariosSalvos) : [];
+
+      const usuarioJaExiste = usuarios.find((user) => user.email === email);
+      if (usuarioJaExiste) {
+        setErrorMessage("Esse e-mail já está cadastrado!");
+        return;
+      }
+
+      usuarios.push(novoUsuario);
+      await AsyncStorage.setItem("users", JSON.stringify(usuarios));
+
       Alert.alert("Usuário cadastrado com sucesso!");
       navigation.navigate("Login");
     } catch (error) {
       console.error(error);
-      Alert.alert("Erro ao salvar o usuário");
+      setErrorMessage("Erro ao salvar o usuário");
     }
   };
 
@@ -96,6 +101,10 @@ const Register = () => {
         onChangeText={setSenha}
       />
 
+      {errorMessage ? (
+        <Text style={styles.errorText}>{errorMessage}</Text>
+      ) : null}
+
       <TouchableOpacity style={styles.button} onPress={handleCadastro}>
         <Text style={styles.buttonText}>Salvar</Text>
       </TouchableOpacity>
@@ -112,7 +121,7 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   title: {
-    fontSize: 22,
+    fontSize: 24,
     color: "#fff",
     marginBottom: 20,
   },
@@ -136,6 +145,10 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "#fff",
     fontWeight: "bold",
+  },
+  errorText: {
+    color: "red",
+    marginTop: 10,
   },
 });
 

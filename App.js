@@ -26,7 +26,7 @@ export default function App() {
         <Stack.Screen
           name="Cards"
           component={Cards}
-          options={{ title: 'Filmes Populares' }}
+          options={{ title: 'Filmes Adicionados' }}
         />
         <Stack.Screen
           name="Details"
